@@ -1,5 +1,5 @@
 <style>
-  @import "../styles/newTab.css";
+    @import "../styles/newTab.css";
 </style>
 <template>
 
@@ -31,8 +31,7 @@
       <div class="search-tips">
         <ul>
           <li v-for="(item,index) in result" v-bind:class="{on:index==num}" v-on:click="searchInfo(index,item)">
-            {{item}}
-          </li>
+            {{item}}</li>
         </ul>
       </div>
     </form>
@@ -43,77 +42,167 @@
 
   export default{
     data(){
-      return {
-        result: null,
-        inputVal: null,
-        num: -1,
+      return{
+       result:null,
+       inputVal : null,
+       num:-1,
       }
     },
-    methods: {
-      textInput: function (event) {
-        this.num = -1;
-        var me = this;
-        var tipHtml = [];
-        var queryTerm = event.target.value;
-        TD.util.ajax({
-          type: 'GET',
-//          url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&p=3&wd=' + queryTerm,
-//          dataType: 'jsonp',
-          url:"/test/data/search.json",
-          dataType:'json',
+      methods:{
+        textInput:function(event){
+          this.num = -1;
+          var me=this;
+          var tipHtml = [];
+          var queryTerm=event.target.value;
+          TD.util.ajax({
+          type:'GET',
+            //url: 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&p=3&wd='+queryTerm,
+            url:'http://clients1.google.com/complete/search?client=serp&pq=3&sugexp=gsis%2Ci18n%3Dtrue&cp=1&gs_id=13&q='+queryTerm,
+            dataType: 'jsonp',
+            //url:"/test/data/search.json",
+            //dataType:'json',
 
-          success: function (data) {
-            me.result = data.s;
-            console.log('----data---', data.s);
+            success: function(data){
 
-          },
-          error: function (xhr, errorType, error) {
-            console.log('----------', errorType, error);
+               for(var i=0,l=data[1].length;i<l;i++){
+                  tipHtml.push(data[1][i][0]);
+               }
+                me.result = tipHtml;
 
+            },
+            error: function(xhr, errorType, error){
+              console.log('----------',errorType,error);
+
+            }
+          })
+        },
+        searchInfo:function(index,item){
+          var me = this;
+          this.num = -1;
+          this.search(item);
+
+        },
+        search:function(item){
+
+          this.inputVal = item;
+
+          window.location= 'http://myhome.parallaxsearch.com/web?qs='+item;
+        },
+
+        up:function(){
+
+          this.num --;
+          if(this.num<=0){
+            this.num=0;
           }
-        })
-      },
-      searchInfo: function (index, item) {
-        var me = this;
-        // var val = event.currentTarget.innerHTML;
-        this.num = -1;
-        this.search(item);
+          this.inputVal = this.result[this.num];
 
-      },
-      search: function (item) {
+        },
+        down:function(){
 
-        this.inputVal = item;
+          this.num ++;
+          if(this.num>this.result.length-1){
+            this.num = this.result.length-1;
+          }
+          this.inputVal = this.result[this.num];
 
-        window.location = 'http://myhome.parallaxsearch.com/web?qs=' + item;
-      },
-
-      up: function () {
-
-        this.num--;
-        if (this.num <= 0) {
-          this.num = 0;
+        },
+        clear:function(){
+          this.num = -1;
+          this.inputVal = "";
+          this.result = [];
         }
-        this.inputVal = this.result[this.num];
-
       },
-      down: function () {
 
-        this.num++;
-        if (this.num > this.result.length - 1) {
-          this.num = this.result.length - 1;
-        }
-        this.inputVal = this.result[this.num];
+      components:{
 
-      },
-      clear: function () {
-        this.num = -1;
-        this.inputVal = "";
-        this.result = [];
       }
-    },
+    }
 
-    components: {}
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>

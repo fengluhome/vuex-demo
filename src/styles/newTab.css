@@ -77,13 +77,13 @@
   text-align: center;
 }
 .search-nav ul li,.search-tips ul li{
-  width: 100%;
   height: 34px;
   line-height: 34px;
   border-radius: none;
   color: #38f;
   cursor: pointer;
   padding-left:15px;
+  font-size: 16px;
 }
 .search-nav ul li:hover,.search-tips ul li:hover,.search-tips ul li.on{
   color: #fff;
@@ -102,12 +102,12 @@
   outline: none;
   cursor: pointer;
   width: 45px;
-  height: 43px;
+  height: 44px;
   line-height: 0;
   font-size: 0;
   text-indent: -999px;
   color: transparent;
   background: url(../images/search.png) no-repeat #4d90fe center;
   background-size: 60%;
-  border: 1px solid #3079ED;
+  /*border: 1px solid #3079ED;*/
 }

@@ -14,15 +14,14 @@
     "http://*/",
     "https://*/",
     "https://sp0.baidu.com/",
-    "http://clients1.google.com/",
     "https://clients1.google.com/"
   ],
 
-  "content_security_policy": "script-src 'self' 'unsafe-eval' https://sp0.baidu.com/; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' http://clients1.google.com/; object-src 'self'",
 
   "content_scripts":[
     {
-      "matches":["https://sp0.baidu.com/"],
+      "matches":["http://clients1.google.com/"],
       "js":[
        "dist/main.js","dist/vendors.js"
       ]

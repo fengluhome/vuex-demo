@@ -4,7 +4,8 @@
 import config from  '../../config';
 import {toQueryString} from './lang'
 window.baidu = window.baidu || {};
-
+window.google = window.google || {};
+google.ac = {};
 
 /**
  *
@@ -47,7 +48,10 @@ export function ajax(option) {
   baidu.sug = function (data) {
    option.success(data);
     // debugger
-  }
+  };
+  google.ac.h = function (data) {
+    option.success(data);
+  };
   // url += "?time=" + (new Date()).valueOf();
 
   if (option.method != "POST" && option.data && typeof option.data === "object") {

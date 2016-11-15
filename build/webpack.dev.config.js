@@ -4,7 +4,7 @@
 global.debug = true;
 var config = require('./webpack.base.config');
 
-config.output.publicPath = '';
+config.output.publicPath = '/dist/';
 
 
 
