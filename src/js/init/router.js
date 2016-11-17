@@ -32,6 +32,12 @@ var router = new VueRouter({
       }
     },
     {
+      path: "/calendar",
+      component: function (resolve) {
+        require(['./../../routers/calendar.vue'], resolve);
+      }
+    },
+    {
       path: "*", redirect: "/newtab"
     }
 
