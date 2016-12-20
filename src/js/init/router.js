@@ -4,41 +4,27 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Vuex from "vuex"
+
 import elmain from '../../components/frame/elmain.vue';
 import {setTD} from './../util/index';
-
+import store from './../../store/index';
 Vue.use(VueRouter);
+
+
 
 // // 路由配置
 var router = new VueRouter({
   routes: [
     {
-      path: '/login',
+      path: '/index',
       component: function (resolve) {
-        require(['./../../routers/login.vue'], resolve);
+        require(['./../../routers/index.vue'], resolve);
       }
     },
-    {
-      path: "/login2",
-      component: function (resolve) {
-        require(['./../../routers/login2.vue'], resolve);
-      }
 
-    },
     {
-      path: "/newtab",
-      component: function (resolve) {
-        require(['./../../routers/newtab.vue'], resolve);
-      }
-    },
-    {
-      path: "/calendar",
-      component: function (resolve) {
-        require(['./../../routers/calendar.vue'], resolve);
-      }
-    },
-    {
-      path: "*", redirect: "/newtab"
+      path: "*", redirect: "/index"
     }
 
   ]
@@ -50,6 +36,7 @@ export function routerStart() {
   new Vue({
     components: {app: elmain},
     router: router,
+    store,
   }).$mount('#app');
 
 }

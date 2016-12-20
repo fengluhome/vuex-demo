@@ -1,47 +1,500 @@
-body{
-  font-family:"Microsoft Yahei",Arial，"Segoe UI";
+/*全局样式*/
+
+*,
+:before,
+:after {
+  /*去掉iOS android 系统中元素被触摸时产生的半透明灰色遮罩 边框*/
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 }
-body,html{
-  height:100%;
-  min-height:100%;
+
+* {
+  font-family: 'iconfont', 'robotoregular', "微软雅黑", "microsoft yahei";
+  margin: 0;
+  padding: 0;
 }
-body,html.div,p,span,i,em,ul,li,input{
-  margin:0;
-  padding:0;
+
+*:not(input, textarea) {
+  -webkit-touch-callout: inherit;
+  -webkit-user-select: auto;
 }
-ul{
-  list-style: none;
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
 }
-a{
-  text-decoration: none;
+
+caption,
+th {
+  text-align: left
 }
-.clear{
-  zoom: 1;
+
+q:before,
+q:after {
+  content: ""
 }
-.clear:after{
-  content: '';
-  display: block;
+
+input:password {
+  ime-mode: disabled
+}
+
+:focus {
+  outline: 0
+}
+
+a {
+  color: #333;
+}
+
+textarea {
+  color: #a5abb2;
+}
+
+a {
+  cursor: pointer;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  border: 0;
+  outline: 0;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  font-size: 12px;
+}
+
+input,
+textarea,
+button {
+  -webkit-appearance: none;
+}
+
+html,
+body {
+  /*禁止iOS长按时不触发系统的菜单，禁止iOS&Android长按时下载图片*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: auto;
+  color: #657180;
+  height: 100%;
+  background: #eef0f1;
+}
+
+.clear {
   clear: both;
 }
-.none{
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfic {
+  display: inline-block;
+  overflow: hidden;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #999;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #999;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #999;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #999;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height:5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #616a97;
+  border-radius: 50px;
+  height: 20px;
+}
+
+::-webkit-input-placeholder {
+  color: #bdc1d5;
+}
+
+::-moz-placeholder {
+  color: #bdc1d5
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0;
+  text-decoration: none;
+  list-style: none;
+  font-style: normal;
+  font-weight: normal;
+  word-break: break-word;
+}
+
+a:visited,
+a:link {
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a {
+  transition: background-color .5s linear, width .5s linear, border-color .5s linear, border-width .5s linear, color .5s linear, opacity .5s linear;
+  -webkit-transition: background-color .5s linear, width .5s linear, border-color .5s linear, border-width .5s linear, color .5s linear, opacity .5s linear;
+}
+
+.l {
+  float: left;
+}
+
+.r {
+  float: right;
+}
+.right{
+  float: right;
+}
+.left{
+  float: left;
+}
+.hidden {
   display: none;
 }
-.wrap{
-  height:100%;
 
-  background-image: url('../images/bg1.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-
+/*main*/
+.main {
+  width: 100%;
+  height: 100%;
+  padding-top: 70px;
+  box-sizing: border-box;
 }
-.container{
-  width: 1010px;
-  margin: 0 auto;
-  padding-top:100px;
+
+/*radio*/
+.regular-radio {
+  float: left;
+  background: #fff;
+  border: 1px solid #c0c7d0;
+  border-radius: 50%;
+  position: relative;
+  top: 6px;
+  padding: 7px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: background .5s linear;
+  -moz-transition: background .5s linear;
+  transition: background .5s linear;
+  -webkit-transition: border-color .5s linear;
+  -moz-transition: border-color .5s linear;
+  transition: border-color .5s linear;
+}
+
+.regular-radio:checked:after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  background: #5f93e1;
+}
+
+.regular-radio:checked {
+  border-color: #5f93e1;
+}
+
+.regular-radio + label {
+  float: left;
+  margin-left: 5px;
+  margin-right: 8px;
+}
+
+/*checkbox*/
+.regular-check {
+  float: left;
+  background: #fff;
+  border: 1px solid #c0c7d0;
+  border-radius: 3px;
+  position: relative;
+  top: 6px;
+  padding: 7px;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: background .5s linear;
+  -moz-transition: background .5s linear;
+  transition: background .5s linear;
+  -webkit-transition: border-color .5s linear;
+  -moz-transition: border-color .5s linear;
+  transition: border-color .5s linear;
+}
+.regular-check-access{
+  top:11px;
+  left:14px;
+}
+.regular-check-li{
+  top:15px;
+  left:0;
+}
+
+.regular-check:checked:after {
+  content: '\2714';
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  background: #349eff;
+  text-align: center;
+  border-radius: 3px;
+  vertical-align: text-top;
+  padding: 0 1px;
+}
+
+.regular-check:checked {
+  border-color: #349eff;
+}
+
+.regular-check + label {
+  float: left;
+  margin-left: 5px;
+  margin-right: 8px;
+}
+.regular-check-access + label{
+  float: left;
+  margin-left: 25px;
+  margin-right: 8px;
+  color:#627182;
+}
+/*check 02*/
+.choose-check {
+  width: 20px;
+  height: 1px;
+  background: #959eb2;
+  display: block;
+  position: relative;
+  top: 7px;
+}
+
+.choose-check:before {
+  content: '';
+  width: 11px;
+  height: 11px;
+  display: block;
+  background: #fff;
+  border: 1px solid #959eb2;
+  border-radius: 50%;
+  position: absolute;
+  left: -5px;
+  top: -6px;
+  cursor: pointer;
+}
+
+.choose-check:after {
+  content: '';
+  width: 5px;
+  height: 1px;
+  display: block;
+  background: #959eb2;
+  border-radius: 50%;
+  position: absolute;
+  left: -1px;
+  top: 0px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.choose-check:before,
+.choose-check:after {
+  -webkit-transition: left ease-in .3s;
+  -moz-transition: left ease-in .3s;
+  transition: left ease-in .3s;
+}
+
+.choose-check:checked {
+  background: #00cc99;
+}
+
+.choose-check:checked:before {
+  border-color: #00cc99;
+  left: 15px;
+}
+
+.choose-check:checked:after {
+  content: '\2714';
+  width: 100%;
+  background: transparent;
+  left: 15px;
+  color: #00cc99;
+  top: -6px;
+  -webkit-transform: scale(.7);
+  -moz-transform: scale(.7);
+  transform: scale(.7);
+}
+/****设置复选框样式** 模拟滑动按钮样式  **/
+.tgl-flat{
+  display: none;
+}
+.tgl,.tgl *,.tgl :after,.tgl :before,.tgl+.tgl-btn,.tgl:after,.tgl:before{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.tgl ::-moz-selection,.tgl :after::-moz-selection,.tgl :before::-moz-selection,.tgl+.tgl-btn::-moz-selection,.tgl::-moz-selection,.tgl:after::-moz-selection,.tgl:after::-moz-selection,.tgl:before::-moz-selection{
+  background:0 0;
+}
+.tgl+.tgl-btn:after,.tgl+.tgl-btn:before{
+  display: block;
+  position: relative;
+  content:"";
+  width:40%;
+  height:100%;
+}
+.tgl+.tgl-btn:after{
+  left:0;
+}
+.tgl:checked+.tgl-btn:after{
+  left:50%;
+}
+.tgl+.tgl-btn:before{
+  display: none;
+}
+.tgl-flat+.tgl-btn{
+  border:1px solid #d5d8e0;
+  background:#d5d8e0;
+  width:20px;
+  height:12px;
+  display: block;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  -webkit-border-radius:12px;
+  -moz-border-radius:12px;
+  border-radius:12px;
+  outline:0;
+  position: relative;
+  cursor: pointer;
+}
+.tgl-flat+.tgl-btn:after{
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  content: '';
+  border-radius: 50%;
+  background:#ffffff;
+  width: 10px;
+  height:10px;
+}
+.tgl-flat:checked+.tgl-btn{
+  border:1px solid #4cd964;
+  background:#4cd964;
+}
+.tgl-flat:checked+.tgl-btn:after{
+  left:45%;
+  background:#ffffff;
 }
