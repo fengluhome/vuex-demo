@@ -12,7 +12,6 @@ import store from './../../store/index';
 Vue.use(VueRouter);
 
 
-
 // // 路由配置
 var router = new VueRouter({
   routes: [
@@ -20,6 +19,12 @@ var router = new VueRouter({
       path: '/index',
       component: function (resolve) {
         require(['./../../routers/index.vue'], resolve);
+      }
+    },
+    {
+      path: '/index2',
+      component: function (resolve) {
+        require(['../../routers/demo/index.vue'], resolve);
       }
     },
 

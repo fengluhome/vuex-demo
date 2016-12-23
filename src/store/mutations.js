@@ -2,9 +2,9 @@
  * Created by lu on 2016/12/19.
  */
 export default {
-  'add' (state, n) {
+  'componentsHistory-add' (state, n) {
     // 变更状态
-    debugger
+    //debugger
     state.chart.id.val = n.id;
 
     state.chart.componentsHistory.push(JSON.parse(JSON.stringify(n)));

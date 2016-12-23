@@ -15,7 +15,7 @@
   export default{
     data(){
       return {
-        list: this.$store.state.chart.componentsHistory,
+          list: this.$store.state.chart.componentsHistory,
 
       }
     },

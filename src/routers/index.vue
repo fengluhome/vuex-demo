@@ -9,7 +9,7 @@
       <button @click="pre">后退</button>
       <button @click="next">前进</button>
       <button @click="save">保存状态</button>
-      <sapn>记录条数{{componentsHistory.length}}</sapn>
+      <span>记录条数{{componentsHistory.length}}</span>
     </h1>
     <penal ref="chart"></penal>
     <history></history>
@@ -33,13 +33,13 @@
     },
     methods: {
       pre: function () {
-        debugger
+        //debugger
         if (this.selectIndex - 1 < 0) return;
         var info = this.componentsHistory[--this.selectIndex]
         this.$refs.chart.setStatus(info);
       },
       next: function () {
-        debugger
+       // debugger
         if (this.selectIndex + 1 > this.componentsHistory.length - 1)return;
         var info = this.componentsHistory[++this.selectIndex];
         this.$refs.chart.setStatus(info);
@@ -47,7 +47,7 @@
       save: function () {
         var data = JSON.parse(JSON.stringify(this.$refs.chart.$data));
         data.id = new Date().valueOf();
-        this.$store.commit("add", data)
+        this.$store.commit("componentsHistory-add", data)
       }
     },
     components: {

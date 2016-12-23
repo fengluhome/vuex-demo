@@ -5,15 +5,17 @@
 import Vue from 'vue';
 import Vuex from "vuex"
 import chart from "./modules/charts";
-import mutations from "./modules/mutations";
-import getters from "./modules/getters";
+import demo from "./modules/demo";
+import mutations from "./mutations";
+import getters from "./getters";
 Vue.use(Vuex);
 const state = {
-  chart
+  chart,
+  demo
 };
 // debugger
 export default  new Vuex.Store({
   state,
   getters,
-  mutations
+  mutations,
 });
